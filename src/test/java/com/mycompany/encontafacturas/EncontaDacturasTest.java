@@ -5,6 +5,7 @@
  */
 package com.mycompany.encontafacturas;
 
+import java.time.LocalDate;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,7 +17,7 @@ import static org.junit.Assert.*;
  *
  * @author martin
  */
-public class MainTest {
+public class EncontaDacturasTest {
     
     /**
     
@@ -45,28 +46,43 @@ public class MainTest {
     *   start date > finish date
     */
     
-    public MainTest() {
+    public EncontaDacturasTest() {
     }
     
+    String id="4e25ce61-e6e2-457a-89f7-116404990967";
+    String urlServer="http://34.209.24.195/facturas";
     
     @Before
     public void setUp() {
+        
     }
    
 
     @Test
     public void testStartDateAndFinishDateAreEqualThenNumberOfCallsMustBe1() {
-        fail("The test case is a prototype.");
+        LocalDate startDate = LocalDate.parse( "2017-01-01" );
+        LocalDate finishDate = LocalDate.parse( "2017-01-01");
+        GetNumberOfInvoice getNumberOfInvoice= new GetNumberOfInvoice();
+        getNumberOfInvoice.calculateNumberOfInvoice(startDate, finishDate, id, urlServer);
+        assertEquals(1,(int)getNumberOfInvoice.getNumberOfCalls());
     }
     
     @Test
     public void testStartDateIsLessOrEqualToFinishDateThenNumberOfCallsMustBeEqualOrGreaterThan1() {
-        fail("The test case is a prototype.");
+        LocalDate startDate = LocalDate.parse( "2017-01-01" );
+        LocalDate finishDate = LocalDate.parse( "2017-01-02");
+        GetNumberOfInvoice getNumberOfInvoice= new GetNumberOfInvoice();
+        getNumberOfInvoice.calculateNumberOfInvoice(startDate, finishDate, id, urlServer);
+        assertTrue(getNumberOfInvoice.getNumberOfCalls()>=1);
     }
     
     @Test
     public void testStartDateIsGreaterThanFinishDateThenNumberOfCallsMustBe1AndNumberOfInvoicesMustBe0() {
-        fail("The test case is a prototype.");
+        LocalDate startDate = LocalDate.parse( "2017-02-01" );
+        LocalDate finishDate = LocalDate.parse( "2017-01-02");
+        GetNumberOfInvoice getNumberOfInvoice= new GetNumberOfInvoice();
+        Integer numberOfInvoice=getNumberOfInvoice.calculateNumberOfInvoice(startDate, finishDate, id, urlServer);
+        assertTrue(getNumberOfInvoice.getNumberOfCalls()==1 && numberOfInvoice==0);
     }
     
  
