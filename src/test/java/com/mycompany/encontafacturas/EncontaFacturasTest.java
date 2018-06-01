@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  *
  * @author martin
  */
-public class EncontaDacturasTest {
+public class EncontaFacturasTest {
     
     /**
     
@@ -46,20 +46,16 @@ public class EncontaDacturasTest {
     *   start date > finish date
     */
     
-    public EncontaDacturasTest() {
+    public EncontaFacturasTest() {
     }
     
     String id="4e25ce61-e6e2-457a-89f7-116404990967";
     String urlServer="http://34.209.24.195/facturas";
     
-    @Before
-    public void setUp() {
-        
-    }
-   
+
 
     @Test
-    public void testStartDateAndFinishDateAreEqualThenNumberOfCallsMustBe1() {
+    public void testStartDateAndFinishDateAreEqualThenNumberOfCallsMustBe1() throws EncontaPersistenceException {
         LocalDate startDate = LocalDate.parse( "2017-01-01" );
         LocalDate finishDate = LocalDate.parse( "2017-01-01");
         GetNumberOfInvoice getNumberOfInvoice= new GetNumberOfInvoice();
@@ -68,7 +64,7 @@ public class EncontaDacturasTest {
     }
     
     @Test
-    public void testStartDateIsLessOrEqualToFinishDateThenNumberOfCallsMustBeEqualOrGreaterThan1() {
+    public void testStartDateIsLessOrEqualToFinishDateThenNumberOfCallsMustBeEqualOrGreaterThan1() throws EncontaPersistenceException {
         LocalDate startDate = LocalDate.parse( "2017-01-01" );
         LocalDate finishDate = LocalDate.parse( "2017-01-02");
         GetNumberOfInvoice getNumberOfInvoice= new GetNumberOfInvoice();
@@ -77,7 +73,7 @@ public class EncontaDacturasTest {
     }
     
     @Test
-    public void testStartDateIsGreaterThanFinishDateThenNumberOfCallsMustBe1AndNumberOfInvoicesMustBe0() {
+    public void testStartDateIsGreaterThanFinishDateThenNumberOfCallsMustBe1AndNumberOfInvoicesMustBe0() throws EncontaPersistenceException {
         LocalDate startDate = LocalDate.parse( "2017-02-01" );
         LocalDate finishDate = LocalDate.parse( "2017-01-02");
         GetNumberOfInvoice getNumberOfInvoice= new GetNumberOfInvoice();
