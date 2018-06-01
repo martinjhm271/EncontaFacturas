@@ -1,5 +1,8 @@
 # EncontaInvoice
-Run this command in the root project directory
+
+This small project estimates the amount of invoices of a client / user given their id and a range of dates (start date and end date).
+
+To run this project execute this command in the root project directory
 ```
 javac -d classes -cp classes  src/main/java/com/mycompany/encontafacturas/*.java
 ```
