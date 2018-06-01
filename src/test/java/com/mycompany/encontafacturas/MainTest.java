@@ -18,29 +18,57 @@ import static org.junit.Assert.*;
  */
 public class MainTest {
     
+    /**
+    
+    * Equivalence class
+    * Input condition
+    *   the start date and finish date are equal, so number of calls must be 1
+    * Type 
+    *   Range                       
+    * VALID EQUIVALENCE CLASS
+    *   DATEDIFF (start, finish) == 0
+
+    * Equivalence class
+    * Input condition
+    *   the start date is less or equal than the finish date,so number of calls must be >=1
+    * Type  
+    *   Range                        
+    * VALID EQUIVALENCE CLASS
+    *   DATEDIFF (start, finish) >= 0 
+ 
+    * Equivalence class
+    * Input condition
+    *   the start date is greater than the finish date, so number of calls must be 1 and number of invoices must be 0
+    * Type  
+    *   Range                        
+    * NOT VALID EQUIVALENCE CLASS
+    *   start date > finish date
+    */
+    
     public MainTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
     
     @Before
     public void setUp() {
     }
-    
-    @After
-    public void tearDown() {
-    }
+   
 
-    @org.junit.Test
-    public void testSomeMethod() {
-        // TODO review the generated test code and remove the default call to fail.
+    @Test
+    public void testStartDateAndFinishDateAreEqualThenNumberOfCallsMustBe1() {
         fail("The test case is a prototype.");
     }
+    
+    @Test
+    public void testStartDateIsLessOrEqualToFinishDateThenNumberOfCallsMustBeEqualOrGreaterThan1() {
+        fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testStartDateIsGreaterThanFinishDateThenNumberOfCallsMustBe1AndNumberOfInvoicesMustBe0() {
+        fail("The test case is a prototype.");
+    }
+    
+ 
     
 }
