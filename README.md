@@ -11,6 +11,11 @@ then run this command
 ```
 java -cp classes com.mycompany.encontafacturas.Main "2017-01-01" "2017-03-01" "4e25ce61-e6e2-457a-89f7-116404990967" "http://34.209.24.195/facturas"
 ```
+Optional
+You can download and install NetBeans IDE 8.2 if you want to run all the test.
+```
+https://netbeans.org/downloads/
+```
 
 Parameters:
 
