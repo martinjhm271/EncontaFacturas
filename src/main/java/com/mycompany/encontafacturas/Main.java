@@ -13,19 +13,31 @@ import static java.time.temporal.ChronoUnit.DAYS;
 public class Main {
     
     public static void main(String[] args){
-	try{
-	    LocalDate startDate = LocalDate.parse( args[0] );
-            LocalDate finishDate = LocalDate.parse( args[1]);
-            String id=args[2];
-            String urlServer=args[3];
-            GetNumberOfInvoice getNumberOfInvoice= new GetNumberOfInvoice();
-            Integer numberOfInvoices=getNumberOfInvoice.calculateNumberOfInvoice(startDate, finishDate, id, urlServer);
-            System.out.println("the number of invoices of id="+id+" is "+numberOfInvoices);
-            System.out.println("and the number of calls were : "+getNumberOfInvoice.getNumberOfCalls());
-	}catch(Exception e){
-	    System.out.println("An error was ocurred,maybe the parameters are wrong or the given address does not work,try again!");
-            System.out.println(e.getMessage());
-	}
+	if(args.length==4){
+            try{
+                LocalDate startDate = LocalDate.parse( args[0] );
+                LocalDate finishDate = LocalDate.parse( args[1]);
+                String id=args[2];
+                String urlServer=args[3];
+                GetNumberOfInvoice getNumberOfInvoice= new GetNumberOfInvoice();
+                Integer numberOfInvoices=getNumberOfInvoice.calculateNumberOfInvoice(startDate, finishDate, id, urlServer);
+                if(numberOfInvoices>=100){
+                    System.out.println( "Hay más de 100 resultados");
+                }
+                else{
+                    System.out.println("the number of invoices of id="+id+" is "+numberOfInvoices);
+                    System.out.println("and the number of calls were : "+getNumberOfInvoice.getNumberOfCalls());
+                }
+               
+            }catch(Exception e){
+                System.out.println("An error was ocurred,maybe the parameters are wrong or the given address does not work,try again!");
+                System.out.println(e.getMessage());
+            }
+        }else{
+             System.out.println("Te faltan parámetros");
+        }
+        
+        
 
     }
     
